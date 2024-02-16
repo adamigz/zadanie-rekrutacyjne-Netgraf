@@ -26,8 +26,8 @@
         <li class="list-group-item">Name: {{ $pet->name }}</li>
         <li class="list-group-item">Category id: {{ $pet->category->id ?? 'Category is not an object' }}</li>
         <li class="list-group-item">Category name: {{ $pet->category->name ?? 'Category is not an object'  }}</li>
-        <li class="list-group-item">Photo urls: @foreach ($pet->photoUrls as $url) {{ $url ?? 'PhotoUrls is not array' }}, @endforeach</li>
-        <li class="list-group-item">Tags: @foreach ($pet->tags as $tag) {{ $tag->name ?? 'Tag is not array of objects' }}, @endforeach</li>
+        <li class="list-group-item">Photo urls: @foreach ($pet->photoUrls ?? [] as $url) {{ $url ?? 'PhotoUrls is not array' }}, @endforeach</li>
+        <li class="list-group-item">Tags: @foreach ($pet->tags ?? [] as $tag) {{ $tag->name ?? 'Tag is not array of objects' }}, @endforeach</li>
         <li class="list-group-item">Status: {{ $pet->status }}</li>
     </ul>
     <a href="{{ route('patchPet', ['id' => $pet->id]) }}" class="btn btn-success">Update</a>

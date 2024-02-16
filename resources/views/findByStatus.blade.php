@@ -29,7 +29,8 @@
                 <td>{{ $pet->category->name ?? "Category is not an array" }}</td>
                 <td>{{ $pet->name ?? "Name is not a pet property" }}</td>
                 <td>
-                    @foreach ($pet->photoUrls as $url)
+                    @foreach ($pet->photoUrls ?? [''] as $url)
+
                         {{ $url ?? "Photourls is not an array of strings" }},
                     @endforeach
                 </td>
